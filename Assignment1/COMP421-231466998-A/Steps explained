@@ -1,0 +1,20 @@
+1)	In the first step I ran the command: 
+		"sqlmap <website link in the get query> --dbs" This command returns us about the database that is being used. The atributes such as the number of databases, the type of database and their names are given back to us. 
+		
+		
+
+2)	In the second step, I used the name of the data base in the arguement -D (acuart) in the command:
+		"sqlmap <weblink with querry -D<db name> --tables"
+This returned the tables inside the database who's name is provided as arguement. In my case, a list of 8 tables were returned; "artist, cart, catea, featured, guestbook, pictures, products, users". 
+
+
+
+3)	In this step I entered a the name of one of the tables in the -T <table name> (artists) in the command: 
+		"sqlmap <weblink with querry -D<db name> -T <table name> --columns"
+This returned to me the collumns that the provided table name had, in my case two collumns "aname" and "artist_id" were returned along with their data type "numeric". 
+
+
+
+4)	In the final step I passed the "aname", which was returned to me in the last step, in the collumn name in  the -C arg in the command: 
+		"sqlmap <weblink with querry -D<db name> -T <table name> -C <column name>" 
+this dumped all the data in the file to a csv file. 
